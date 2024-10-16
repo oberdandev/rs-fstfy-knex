@@ -16,7 +16,8 @@
   "scripts": {
     "dev": "npx tsx ./src/server.ts",
     "biome": "npx @biomejs/biome format --write ./src",
-    "lint": "npx @biomejs/biome format --write ./src"
+    "lint": "npx @biomejs/biome format --write ./src",
+    "knex": "node --import tsx ./node_modules/.bin/knex"
   },
   "keywords": [],
   "author": "",
