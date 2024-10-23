@@ -1,1 +1,2 @@
-interface 
+import {z} from 'zod'
+

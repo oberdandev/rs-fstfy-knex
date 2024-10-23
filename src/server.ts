@@ -4,14 +4,14 @@ import { knex } from './database'
 import { env } from './env'
 import { transactionRoutes } from './routes/transactions'
 
-const app:FastifyInstance = fastify()
+const app: FastifyInstance = fastify()
 
 app.get('/', async (req, res) => {
   return res.send({ hello: 'world' })
 })
 
 app.register(transactionRoutes, {
-  prefix: 'transactions'
+  prefix: 'transactions',
 })
 
 app
