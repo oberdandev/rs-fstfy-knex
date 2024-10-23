@@ -2,7 +2,8 @@
   "dependencies": {
     "fastify": "^4.28.0",
     "knex": "^3.1.0",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "zod": "^3.23.8"
   },
   "name": "primeira-aplicacao",
   "version": "1.0.0",
@@ -14,7 +15,7 @@
     "typescript": "^5.4.5"
   },
   "scripts": {
-    "dev": "npx tsx ./src/server.ts",
+    "dev": "npx tsx --watch --env-file=.env ./src/server.ts ",
     "biome": "npx @biomejs/biome format --write ./src",
     "lint": "npx @biomejs/biome format --write ./src",
     "knex": "node --import tsx ./node_modules/.bin/knex"

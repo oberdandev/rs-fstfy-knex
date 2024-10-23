@@ -1,17 +1,23 @@
 import fastify from 'fastify'
+import type { FastifyInstance, RouteShorthandMethod } from 'fastify'
 import { knex } from './database'
+import { env } from './env'
+import { transactionRoutes } from './routes/transactions'
 
-const app = fastify()
+const app:FastifyInstance = fastify()
 
-app.get('/', async (request, reply) => {
-  const query = await knex('sqlite_schema').select('*')
-  return query
+app.get('/', async (req, res) => {
+  return res.send({ hello: 'world' })
+})
+
+app.register(transactionRoutes, {
+  prefix: 'transactions'
 })
 
 app
   .listen({
-    port: 3333,
+    port: env.PORT,
   })
   .then(() => {
-    console.log('app is running on port 3333')
+    console.log('app is running on port ', env.PORT)
   })
